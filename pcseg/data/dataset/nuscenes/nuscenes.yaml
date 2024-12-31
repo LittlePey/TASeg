@@ -1,0 +1,106 @@
+# This file is covered by the LICENSE file in the root of this project.
+labels: 
+  0: 'noise'
+  1: 'animal'
+  2: 'human.pedestrian.adult'
+  3: 'human.pedestrian.child'
+  4: 'human.pedestrian.construction_worker'
+  5: 'human.pedestrian.personal_mobility'
+  6: 'human.pedestrian.police_officer'
+  7: 'human.pedestrian.stroller'
+  8: 'human.pedestrian.wheelchair'
+  9: 'movable_object.barrier'
+  10: 'movable_object.debris'
+  11: 'movable_object.pushable_pullable'
+  12: 'movable_object.trafficcone'
+  13: 'static_object.bicycle_rack'
+  14: 'vehicle.bicycle'
+  15: 'vehicle.bus.bendy'
+  16: 'vehicle.bus.rigid'
+  17: 'vehicle.car'
+  18: 'vehicle.construction'
+  19: 'vehicle.emergency.ambulance'
+  20: 'vehicle.emergency.police'
+  21: 'vehicle.motorcycle'
+  22: 'vehicle.trailer'
+  23: 'vehicle.truck'
+  24: 'flat.driveable_surface'
+  25: 'flat.other'
+  26: 'flat.sidewalk'
+  27: 'flat.terrain'
+  28: 'static.manmade'
+  29: 'static.other'
+  30: 'static.vegetation'
+  31: 'vehicle.ego'
+
+labels_16:
+  0: 'noise'
+  1: 'barrier'
+  2: 'bicycle'
+  3: 'bus'
+  4: 'car'
+  5: 'construction_vehicle'
+  6: 'motorcycle'
+  7: 'pedestrian'
+  8: 'traffic_cone'
+  9: 'trailer'
+  10: 'truck'
+  11: 'driveable_surface'
+  12: 'other_flat'
+  13: 'sidewalk'
+  14: 'terrain'
+  15: 'manmade'
+  16: 'vegetation'
+
+learning_map:
+  1: 0      # noise
+  5: 0      # noise
+  7: 0      # noise
+  8: 0      # noise
+  10: 0     # noise
+  11: 0     # noise
+  13: 0     # noise
+  19: 0     # noise
+  20: 0     # noise
+  0: 0      # noise
+  29: 0     # noise
+  31: 0     # noise
+  9: 1      # barrier
+  14: 2     # bicycle
+  15: 3     # bus
+  16: 3     # bus
+  17: 4     # car
+  18: 5     # construction_vehicle
+  21: 6     # motorcycle
+  2: 7      # pedestrian
+  3: 7      # pedestrian
+  4: 7      # pedestrian
+  6: 7      # pedestrian
+  12: 8     # traffic_cone
+  22: 9     # trailer
+  23: 10    # truck
+  24: 11    # driveable_surface
+  25: 12    # other_flat
+  26: 13    # sidewalk
+  27: 14    # terrain
+  28: 15    # manmade
+  30: 16    # vegetation
+
+learning_ignore: # Ignore classes
+  0: True      # "noise", and others ignored
+  1: False     # "barrier"
+  2: False     # "bicycle"
+  3: False     # "bus"
+  4: False     # "car"
+  5: False     # "construction_vehicle"
+  6: False     # "motorcycle"
+  7: False     # "pedestrian"
+  8: False     # "traffic_cone"
+  9: False     # "trailer"
+  10: False    # "truck"
+  11: False    # "driveable_surface"
+  12: False    # "other_flat"
+  13: False    # "sidewalk"
+  14: False    # "terrain"
+  15: False    # "manmade"
+  16: False    # "vegetation"

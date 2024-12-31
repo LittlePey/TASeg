@@ -1,0 +1,58 @@
+MODALITY: 'voxel'
+
+DATA:
+    DATASET: 'semantickitti_ms_mm'     # choices: ['nuscenes', 'semantickitti', 'scribblekitti']
+    PETRELOSS_CONFIG: None
+    DATA_PATH: 'data_root/SemanticKITTI/sequences/'
+    VOXEL_SIZE: 0.05
+    AUGMENT: 'none'  # choices: ['GlobalAugment', 'GlobalAugment_LP']
+    NUM_POINTS: 3000000
+    IN_FEATURE_DIM: 5
+    TRAINVAL: False              # train set: train + val
+    TTA: False
+
+    DYNAMIC_STEP: False
+    MULTISCAN_SCALE: 1.0
+    MULTISCAN: 16
+    MULTISCAN_IMAGE: 48
+    STEP_IMAGE: 12
+    HEIGHT: 384
+    WIDTH: 1280
+    FOV_DIST: -1
+    IMAGE_FLIP: False
+    IMAGE_JITTER: False
+    ONLY_HISTORY: True
+    PSEUDO_MASK: 'mink_notta'
+    FLEXIBLE_STEPS: [0,0,2,2,2,2,2,2,2,0,4,4,4,0,4,0,2,4,2,2]
+    EVAL_RANGE: [0,1000]
+
+MODEL:
+    NAME: MinkUNetMsMm
+    INPUT_FEAT: rgb
+    INPUT_FEAT_LIDAR: lidar-image
+    IMAGE_BACKBONE_TYPE: UNet2D
+    LIDAR_BACKBONE_TYPE: UNet3D
+    LOSS_WEIGHT: [0,1,0.5,0.5,1]
+    FUSION_TYPE: cat
+    ENSEMBLE_TYPE: replace
+    IGNORE_LABEL: 0
+    IN_FEATURE_DIM: 5
+    BLOCK: ResBlock
+    NUM_LAYER: [2, 3, 4, 6, 2, 2, 2, 2]
+    PLANES: [32, 32, 64, 128, 256, 256, 128, 96, 96]
+    cr: 1.0
+    DROPOUT_P: 0.0
+    LABEL_SMOOTHING: 0.1
+    IF_DIST: True                # True: multi-gpus, False: single gpu
+
+OPTIM:
+    BATCH_SIZE_PER_GPU: 2
+    NUM_EPOCHS: 12
+    OPTIMIZER: sgd
+    LR_PER_SAMPLE: 0.02
+    WEIGHT_DECAY: 0.0001
+    MOMENTUM: 0.9
+    NESTEROV: True
+    GRAD_NORM_CLIP: 10
+    SCHEDULER: linear_warmup_with_cosdecay
+    WARMUP_EPOCH: 1
