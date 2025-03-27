@@ -88,7 +88,20 @@ python setup.py install
 Processing dependencies for rangelib==1.0.0
 Finished processing dependencies for rangelib==1.0.0
 ```
-#### 4.5 - Other Packages
+
+#### 4.5 - Petrel
+If your data is stored in oss, you can use [petrel-oss-python-sdk](https://drive.google.com/file/d/1-LZEGU7DiBjVzRC0HRpG3g6JQjafeb-s/view?usp=sharing) to load your data. To prevent errors (ModuleNotFoundError: No module named 'petrel_client'), install this package whether you use petrel or not. If you can not install this package, you can also comment out the code about petrel to prevent errors.
+```
+tar -xvf petrel-oss-python-sdk.tar
+mv petrel-oss-python-sdk ~
+cd ~/petrel-oss-python-sdk
+python setup.py sdist
+pip install --user dist/*
+cp ./conf/petreloss.conf  ~
+After that, you need to modify the petreloss.conf with your cluster name, access_key, secret_key, host_base, and host_bucket.
+```
+
+#### 4.6 - Other Packages
 ```Shell
 pip install pyyaml easydict numba torchpack strictyaml llvmlite easydict scikit-image tqdm SharedArray prettytable opencv-python
 ```
@@ -97,6 +110,6 @@ pip uninstall setuptools
 pip install setuptools==59.5.0
 ```
 
-#### 4.6 - Change PATH in the train.py
+#### 4.7 - Change PATH in the train.py
 Change the PATH in the line 119~124 of the train.py according to your machine.
 
